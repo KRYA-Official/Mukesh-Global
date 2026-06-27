@@ -1,26 +1,35 @@
-// ===============================
-// Mukesh Global - script.js
-// Version 1.0
-// ===============================
+// ======================================
+// Mukesh Global Lucky Wheel
+// Version 2.0
+// ======================================
 
-const spinBtn = document.getElementById("spinBtn");
 const wheel = document.getElementById("wheel");
+const spinBtn = document.getElementById("spinBtn");
 
 let spinning = false;
 
+// Prize List
 const prizes = [
-    "₹10 Reward",
-    "Better Luck Next Time",
-    "₹20 Reward",
+    "₹10 Cashback",
+    "₹20 Cashback",
+    "₹50 Cashback",
+    "₹100 Cashback",
     "Free Spin",
-    "₹50 Reward",
-    "₹100 Reward",
     "Gift Voucher",
+    "Better Luck Next Time",
     "Jackpot"
 ];
 
-spinBtn.addEventListener("click", spinWheel);
+// Winner Popup
+function showWinner(prize){
+    alert(
+        "🎉 Congratulations!\n\n" +
+        "You Won:\n\n" +
+        prize
+    );
+}
 
+// Lucky Wheel Spin
 function spinWheel(){
 
     if(spinning){
@@ -30,28 +39,39 @@ function spinWheel(){
     spinning = true;
 
     spinBtn.disabled = true;
-    spinBtn.innerHTML = "Spinning...";
+    spinBtn.innerHTML = "⏳ Spinning...";
 
-    const prizeIndex = Math.floor(Math.random() * prizes.length);
+    // Random Prize
+    const prizeIndex =
+        Math.floor(Math.random()*prizes.length);
 
-    const segment = 360 / prizes.length;
+    const segment =
+        360/prizes.length;
 
+    // Smooth Rotation
     const rotate =
-        (360 * 5) +
-        (360 - (segment * prizeIndex) - (segment / 2));
+        (360*8) +
+        (360-(segment*prizeIndex)-(segment/2));
 
-    wheel.style.transition = "transform 5s ease-out";
-    wheel.style.transform = `rotate(${rotate}deg)`;
+    wheel.style.transition =
+        "transform 5s cubic-bezier(.17,.67,.15,.99)";
 
-    setTimeout(() => {
+    wheel.style.transform =
+        `rotate(${rotate}deg)`;
 
-        alert("🎉 Congratulations!\n\nYou Won:\n" + prizes[prizeIndex]);
+    setTimeout(()=>{
+
+        showWinner(prizes[prizeIndex]);
 
         spinBtn.disabled = false;
-        spinBtn.innerHTML = "🎯 Spin Now";
+
+        spinBtn.innerHTML = "🎯 Spin Again";
 
         spinning = false;
 
     },5000);
 
 }
+
+// Click Event
+spinBtn.addEventListener("click",spinWheel);
