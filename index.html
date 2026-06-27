@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mukesh Global | Rewards & Digital Platform</title>
-
     <meta name="description" content="Mukesh Global - Rewards, Lucky Wheel, Wallet, Referral, News, AI Tools and Digital Services Platform.">
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- हेडर (यह मोबाइल पर CSS के जरिए छुप जाएगा) -->
 <header>
-    <div class="logo">
-        <h1>Mukesh Global</h1>
-    </div>
-
+    <div class="logo"><h1>Mukesh Global</h1></div>
     <nav>
         <a href="#">Home</a>
         <a href="#wheelSection">Lucky Wheel</a>
@@ -27,88 +22,30 @@
     </nav>
 </header>
 
-<main>
-
-<section class="hero">
-
-    <h2>Welcome to Mukesh Global</h2>
-
-    <p>One Platform for Rewards, Digital Services and Smart Earning.</p>
-
-    <button id="startBtn">Start Now</button>
-
-</section>
-
-<section id="wheelSection">
-
-    <h2>🎯 Lucky Wheel</h2>
-
-    <div class="wheel-container">
-
-        <div id="pointer"></div>
-
-        <div id="wheel"></div>
-
+<main id="app">
+    <!-- मॉड्यूल्स यहाँ लोड होंगे -->
+    <div id="header-root"></div>
+    <div id="hero-root"></div>
+    <div id="dashboard-root">
+        <section id="wheelSection">
+            <h2>🎯 Lucky Wheel</h2>
+            <div class="wheel-container"><div id="pointer"></div><div id="wheel"></div></div>
+            <button id="spinBtn">🎯 Spin Now</button>
+        </section>
+        <section id="wallet"><h2>💰 Wallet</h2><p>₹0.00</p></section>
+        <section id="dailyReward"><h2>🎁 Daily Reward</h2><p>Available Soon</p></section>
+        <section id="referral"><h2>👥 Referral Program</h2><p>Invite Friends & Earn Rewards.</p></section>
+        <section id="news"><h2>📰 Latest News</h2><p>User Generated News Platform.</p></section>
+        <section id="tools"><h2>🛠 Digital Tools</h2><ul><li>AI Tools</li><li>PDF Tools</li><li>Image Tools</li><li>More Coming Soon...</li></ul></section>
     </div>
-
-    <button id="spinBtn">🎯 Spin Now</button>
-
-</section>
-
-<section id="wallet">
-
-    <h2>💰 Wallet</h2>
-
-    <p>₹0.00</p>
-
-</section>
-
-<section id="dailyReward">
-
-    <h2>🎁 Daily Reward</h2>
-
-    <p>Available Soon</p>
-
-</section>
-
-<section id="referral">
-
-    <h2>👥 Referral Program</h2>
-
-    <p>Invite Friends & Earn Rewards.</p>
-
-</section>
-
-<section id="news">
-
-    <h2>📰 Latest News</h2>
-
-    <p>User Generated News Platform.</p>
-
-</section>
-
-<section id="tools">
-
-    <h2>🛠 Digital Tools</h2>
-
-    <ul>
-        <li>AI Tools</li>
-        <li>PDF Tools</li>
-        <li>Image Tools</li>
-        <li>More Coming Soon...</li>
-    </ul>
-
-</section>
-
-<footer>
-
-    <p>© 2026 Mukesh Global. All Rights Reserved.</p>
-
-</footer>
-
+    <div id="footer-root"></div>
 </main>
 
-<script src="script.js"></script>
+<!-- बॉटम नेविगेशन का कंटेनर -->
+<div id="nav-root"></div>
+
+<!-- मुख्य एप्लिकेशन लॉजिक -->
+<script type="module" src="core/app.js"></script>
 
 </body>
 </html>
