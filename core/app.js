@@ -1,17 +1,13 @@
-// core/app.js - अपडेटेड सिस्टम
+// core/app.js - अपडेटेड वर्जन
 import { initHeader } from '../modules/header.js';
 import { initHero } from '../modules/hero.js';
+import { initWallet } from '../modules/wallet.js'; // नया इम्पोर्ट
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Mukesh Global Core Initialized");
-    
-    // सभी मॉड्यूल यहाँ लोड करें
     initHeader();
     initHero();
+    initWallet(); // वॉलेट लोड करें
     
-    // लोडर हटाएं
     const loader = document.getElementById('loader-root');
-    if (loader) {
-        loader.style.display = 'none';
-    }
+    if (loader) loader.style.display = 'none';
 });
